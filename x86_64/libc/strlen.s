@@ -8,13 +8,13 @@ strlen:
 
 	xor 	%rcx, %rcx 
  	
-	loop:
+	strlen_loop:
 		cmpb   	$0x00, (%rdi, %rcx, 1)
-		je  	return 
+		je  	strlen_return 
 		inc 	%rcx
-		jmp  	loop
+		jmp  	strlen_loop
 
-	return:
+	strlen_return:
 		mov 	%rcx, %rax 	 	# return value to rax
 
 		mov 	%rbp, %rsp
