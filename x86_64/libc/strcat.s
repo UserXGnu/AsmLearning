@@ -21,7 +21,7 @@ strcat:
         proper_strcat:
             movb    (%rsi, %rcx, 1), %al
             movb    %al, (%rdi, %rcx, 1)
-            cmpb    $0x0, (%rdi, %rcx, 1)
+            cmpb    $0x0, %al
             je      strcat_end
             inc     %rcx
             jmp     proper_strcat
