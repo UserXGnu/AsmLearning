@@ -1,8 +1,8 @@
 .text
-    .globl nstrcat
-    .type nstrcat, @function
+    .globl strcat
+    .type strcat, @function
 
-nstrcat:
+strcat:
     push    %rbp
     mov     %rsp, %rbp
 
@@ -11,22 +11,22 @@ nstrcat:
 
     push    %rdi
 
-    nstrcat_loop:
+    strcat_loop:
         movb    (%rdi), %al 
         cmpb    $0x0, %al
-        je      proper_nstrcat
+        je      proper_strcat
         inc     %rdi
-        jmp     nstrcat_loop
+        jmp     strcat_loop
 
-        proper_nstrcat:
+        proper_strcat:
             movb    (%rsi, %rcx, 1), %al
             movb    %al, (%rdi, %rcx, 1)
             cmpb    $0x0, (%rdi, %rcx, 1)
-            je      nstrcat_end
+            je      strcat_end
             inc     %rcx
-            jmp     proper_nstrcat
+            jmp     proper_strcat
 
-    nstrcat_end:
+    strcat_end:
         pop     %rax
 
         mov     %rbp, %rsp
