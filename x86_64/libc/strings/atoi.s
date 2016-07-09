@@ -1,13 +1,3 @@
-.data
- 	fmt:
- 		.asciz "%d\n"
-	ask:
-	 	.asciz "Type a number: "
-	str_fmt:
-	 	.asciz "%s\n"
-	 	
-	 	
-
 .text
     .globl atoi
     .type atoi, @function
