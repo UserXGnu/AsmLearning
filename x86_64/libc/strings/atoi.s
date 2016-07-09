@@ -10,46 +10,7 @@
 
 .text
     .globl atoi
-#    .globl main
     .type atoi, @function
-/*
-
-main: 
-    push    %rbp
-    mov     %rsp, %rbp
-
-    sub     $0x10, %rsp
-
- 	mov 	$0x1, %rdi 
-	mov 	$ask, %rsi
-	mov 	$0xf, %rdx
-	mov 	$0x1, %rax
-	syscall
-
-  	# read (int fd, void * buf, size_t size)
-	mov 	$0x0, %rax   	# syscall number 
-	mov 	$0x0, %rdi   	# fileno(stdin) = 0
-	mov 	%rsp, %rsi  	# buf 
-	mov 	$0x3, %rdx 		# size 
-	syscall
-
- 	mov 	$0x03, %rcx
- 	movb 	$0x00, (%rsi, %rcx, 1)
-
-	mov 	%rsp, %rdi
- 	call 	atoi
-
-	mov 	$fmt, %rdi
-	mov 	%rax, %rsi
-	xor 	%rax, %rax
-	call 	printf
-
-	xor 	%rax, %rax
-
-	mov 	%rbp, %rsp
-	pop 	%rbp
-	ret
-*/
 
 
 atoi:
