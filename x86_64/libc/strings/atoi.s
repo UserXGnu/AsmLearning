@@ -16,9 +16,9 @@ atoi:
 	 * 		n = n * 10 + (num[i] - 0x30);
 	 * }
 	 */
-	.atoi_loop:
+	.Latoi_loop:
 		cmpb  	$0x00, (%rdi, %rcx, 1)
- 		je 		.atoi_end
+ 		je 	 	.Latoi_end
 
  		# n = n * 10
  		pop 	%rdx
@@ -34,9 +34,9 @@ atoi:
 		add 	%rdx, %rax 
 		push 	%rax 
 		inc 	%rcx 
-		jmp 	.atoi_loop
+		jmp 	.Latoi_loop
  		
- 	.atoi_end:
+ 	.Latoi_end:
  		pop 	%rax 
 
  		mov 	%rbp, %rsp
