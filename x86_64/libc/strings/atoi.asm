@@ -26,22 +26,11 @@ atoi:
 		push 	rdx
 		inc 	rcx
 		jmp 	.atoi_loop 
-
+		
 	.atoi_end:
 	 	pop 	rax
 
 		mov 	rsp, rbp
 		pop 	rbp
 		ret 
-		 
-		
-
-
-
-		
-  		
-
-	mov 	rsp, rbp
-	pop 	rbp
-	ret
 
