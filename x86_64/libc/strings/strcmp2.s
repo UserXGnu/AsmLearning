@@ -19,8 +19,8 @@ strcmp:
 		jl 		.Lesser
 		inc 	%rcx
 		cmpb  	$0x00, (%rsi, %rcx, 1)
-		jnz	 	.Loop_strcmp 
-		jmp 	.Len_test
+		je 		.Loop_strcmp_end
+		jmp 	.Loop_strcmp
 
  	.Loop_strcmp_end:
 	 	mov 	$0x00, %rax
@@ -38,23 +38,6 @@ strcmp:
 	 	mov 	%rbp, %rsp
 		pop 	%rbp
 		ret
-
-	.Len_test:
-		movq 	%rcx, %rax
-		movq 	$-0x01, %rcx
-
-		.Len_test_loop:
-		 	inc 	%rcx
-			cmpb 	$0x00, (%rdi, %rcx, 1);
-			jnz 	.Len_test_loop
-			cmpq 	%rcx, %rax
-			jg 		.Lgreater
-			jl 	 	.Lesser
-			je 		.Loop_strcmp_end
-	 		
- 				
-			
-
 	 	
 
  	
