@@ -7,7 +7,7 @@ main (void) {
     char str[6] = "Victor";
     char str1[6] = {0};
 
-    strncpy(str1, str, 6);
+    strncpy(str1, str, 10);
 
     printf ("%s\n", str1);
 

@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-extern char * nstrcpy (char *, char *);
+extern char * strcpy (char *, char *);
 
 int
 main (void) {
     char src[32] = "Hacking";
     char dst[32];
 
-    nstrcpy (dst, src);
+    strcpy (dst, src);
 
     printf ("%s\n", dst);
 

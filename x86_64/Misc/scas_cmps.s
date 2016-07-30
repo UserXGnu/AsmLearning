@@ -56,6 +56,7 @@ compare:
 	movq 	%rdi, %rsi
 	mov 	$str2, %rdi
 	cld 
+	cmp 	$0x00, %rbp
  	repz  	cmpsb
 	cmp 	$0x00, %rcx
 	jg 		.Lesser
@@ -73,6 +74,7 @@ compare:
 
 
 
+# size_t len (const char * string);
 len:
  	push 	%rbp
 	movq 	%rsp, %rbp
@@ -81,6 +83,8 @@ len:
  	xor 	%rcx, %rcx
 	not 	%rcx
  	
+	cmp 	$0x00, %rbp
+	 
 	repnz  	scasb
 	not 	%rcx
 	movq 	%rcx, %rax
