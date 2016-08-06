@@ -9,10 +9,6 @@ encrypt:
  	push 	%rbp
 	mov 	%rsp, %rbp
 
- 	mov 	$0x10, %rcx
-
- 	sub  	$0x08, %rsp # two intergers
-
  	xor 	%rcx, %rcx
 	xor 	%rax, %rax
 
