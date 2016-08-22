@@ -56,11 +56,24 @@ strcmp (const char * s1, const char * s2) {
         ".Lstrcmp_end:\r\n");
 }
 
-int
-get_size (const char * fpath, const struct stat * sb, int typeflag) {
-    new_size += sb->st_size;
-    return 0;
-}
+#ifdef IN_LINE_ASM
+    int
+    get_size (const char * fpath, const struct stat * sb, int typeflag) {
+        __asm__ __volatile__ ("mov  %rsi, %rax\r\n"\
+                              "mov  0x30(%rax), %rax\r\n"\
+                              "mov  %rax, %rdx\r\n"\
+                              "mov  new_size, %rax\r\n"\
+                              "add  %rdx, %rax\r\n"\
+                              "mov  %rax, new_size\r\n"\
+                              "mov  $0x00, %rax");
+    }
+#else 
+    int
+    get_size (const char * fpath, const struct stat * sb, int typeflag) {
+        new_size += sb->st_size;
+        return 0;
+    }
+#endif /* #IN_LINE_ASM */
 
 bool
 check_size (const char * dirpath, unsigned long int * current_size) {

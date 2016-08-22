@@ -15,7 +15,11 @@
 
 #define NEW(size)       ((char *) (calloc(size, sizeof(char))))
 
-static unsigned long int new_size;
+#ifdef IN_LINE_ASM
+    static unsigned long int __attribute__((used)) new_size;
+#else
+    static unsigned long int new_size;
+#endif /* IN_LINE_ASM */
 
 int get_size (const char * fpath, const struct stat * sb, int typeflag);
 bool check_size (const char * dirpath, unsigned long int * current_size);
