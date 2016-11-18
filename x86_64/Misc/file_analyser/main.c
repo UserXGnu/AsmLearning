@@ -8,6 +8,7 @@ main (int argc, char ** argv) {
     }
 
     unsigned long int current = 0;
+
     for (;;) { 
         if (check_size (argv[1], &current) == true) {
             read_filenames (argv[1]);
@@ -17,5 +18,4 @@ main (int argc, char ** argv) {
 
     return 0;
 }
-
 

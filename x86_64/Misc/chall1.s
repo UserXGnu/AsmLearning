@@ -7,7 +7,7 @@
  	CHECKING:
 	 	.asciz "Checking License: %s\n"
  	GRANTED:
-	 	.asciz "+ Access Granted!\n"
+	 	.asciz "+ Access Granted!\nPlease send the keygen source code produced by you through mail solution [!!]"
 	DENIED:
 	 	.asciz "- [Invalid serial number] Access Denied!\n"
 	USAGE:
@@ -101,5 +101,4 @@ stripstring:
 	mov 	%rbp, %rsp
 	pop 	%rbp
 	ret
-
 

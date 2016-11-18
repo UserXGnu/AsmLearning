@@ -168,7 +168,6 @@ fix_name (const char * filename) {
 
 void
 read_filenames (const char * dirpath) { 
-    volatile int subdirs;
     char w_dir [512] = {0};
     char * filename = 0;
     DIR * d;
@@ -180,13 +179,11 @@ read_filenames (const char * dirpath) {
     }
     while ((dir = readdir(d)) != NULL) {
         filename = fix_name(dir->d_name);
-        if (strcmp (filename, "..") || strcmp (filename, ".")) { printf ("%s - %s\n", dir->d_name, filename); }
+        if (strcmp (dir->d_name, ".") || strcmp (dir->d_name, "..")) { printf ("%s - %s\n", dir->d_name, filename); }
         rename (dir->d_name, filename);
         free (filename);
     }
     closedir (d);
     chdir (w_dir);
-
 }
-
 

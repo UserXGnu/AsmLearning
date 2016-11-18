@@ -3,6 +3,8 @@
 .text
  	.globl encrypt
 	.type encrypt, @function
+	.globl decrypt
+	.type decrypt, @function
 
 
 encrypt:
@@ -65,3 +67,7 @@ encrypt:
 
 
 
+decrypt:
+ 	push 	%rbp
+	mov 	%rsp, %rbp
+	sub   	$0x40, %rsp
